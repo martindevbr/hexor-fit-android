@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Só internet: o app é o próprio site (fit.hexor.com.br) aberto em tela cheia. -->
+    <!-- Internet: o app é o próprio site (fit.hexor.com.br) aberto em tela cheia. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Notificações do site (lembrete do treino, avisos ao personal) aparecem como do app.
+         Android 13+ pede a permissão na primeira vez que o site pedir para notificar. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <queries>
         <intent>
@@ -55,6 +58,26 @@
                 <data android:scheme="https" android:host="${hostName}" />
             </intent-filter>
         </activity>
+
+        <!-- Delegação de notificações da TWA: o Chrome entrega as notificações Web Push do site
+             para o app (ícone, nome e canal do Hexor Fit, não do Chrome). -->
+        <service
+            android:name="com.google.androidbrowserhelper.trusted.DelegationService"
+            android:enabled="true"
+            android:exported="true">
+            <meta-data
+                android:name="android.support.customtabs.trusted.SMALL_ICON"
+                android:resource="@drawable/ic_notification_icon" />
+            <intent-filter>
+                <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <!-- Android 13+: tela do sistema que pede a permissão de notificação quando o site pede. -->
+        <activity
+            android:name="com.google.androidbrowserhelper.trusted.NotificationPermissionRequestActivity"
+            android:exported="false" />
 
         <activity
             android:name="com.google.androidbrowserhelper.trusted.FocusActivity"

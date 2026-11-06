@@ -10,7 +10,7 @@
   "navigationColor": "#06120E",
   "navigationColorDark": "#06120E",
   "backgroundColor": "#06120E",
-  "enableNotifications": false,
+  "enableNotifications": true,
   "startUrl": "/inicio?app=android",
   "iconUrl": "https://fit.hexor.com.br/icons/icon-512.png",
   "maskableIconUrl": "https://fit.hexor.com.br/icons/maskable-512.png",
@@ -19,8 +19,8 @@
     "path": "D:\\hexor-fit-android-keys\\hexor-fit.jks",
     "alias": "hexorfit"
   },
-  "appVersionName": "1.0.0",
-  "appVersionCode": 10000,
+  "appVersionName": "1.0.1",
+  "appVersionCode": 10001,
   "shortcuts": [
     { "name": "Minha área de aluno", "shortName": "Área do aluno", "url": "/aluno?app=android" },
     { "name": "Painel do personal", "shortName": "Painel", "url": "/app?app=android" }

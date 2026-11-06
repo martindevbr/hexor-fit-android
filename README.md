@@ -12,6 +12,11 @@ muda no site muda no app, sem nova versão.
   - senão, a tela "Sou aluno / Sou personal".
 - Atalhos (toque longo no ícone): "Minha área de aluno" e "Painel do personal".
 - Links do site (ex.: a ficha que o personal manda no WhatsApp) podem abrir direto no app.
+- **Notificações** (desde a 1.0.1): delegação de notificações da TWA
+  (`DelegationService` do androidbrowserhelper + `POST_NOTIFICATIONS`). As notificações Web Push
+  do site (lembrete do treino, avisos ao personal) aparecem com o nome e o ícone do Hexor Fit
+  (`res/drawable/ic_notification_icon.xml`). No Android 13+ o sistema pede a permissão quando o
+  site pede para notificar (`NotificationPermissionRequestActivity`).
 - Sem Chrome (ou outro navegador com TWA): abre numa Custom Tab. WebView não é usado
   porque o login com Google não funciona dentro dele.
 

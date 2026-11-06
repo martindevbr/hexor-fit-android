@@ -3,7 +3,7 @@ plugins {
 }
 
 // Versão vem do workflow (-PappVersion=1.2.3). versionCode = 1.2.3 -> 10203.
-def appVersion = (project.findProperty("appVersion") ?: "1.0.0").toString().replaceFirst(/^v/, "")
+def appVersion = (project.findProperty("appVersion") ?: "1.0.1").toString().replaceFirst(/^v/, "")
 def parts = appVersion.tokenize(".").collect { (it.replaceAll(/\D.*$/, "") ?: "0") as int }
 while (parts.size() < 3) parts << 0
 def appVersionCode = parts[0] * 10000 + parts[1] * 100 + parts[2]
