@@ -1,0 +1,74 @@
+plugins {
+    id "com.android.application"
+}
+
+// Versão vem do workflow (-PappVersion=1.2.3). versionCode = 1.2.3 -> 10203.
+def appVersion = (project.findProperty("appVersion") ?: "1.0.0").toString().replaceFirst(/^v/, "")
+def parts = appVersion.tokenize(".").collect { (it.replaceAll(/\D.*$/, "") ?: "0") as int }
+while (parts.size() < 3) parts << 0
+def appVersionCode = parts[0] * 10000 + parts[1] * 100 + parts[2]
+
+def siteHost = "fit.hexor.com.br"
+def launchUrl = "https://${siteHost}/inicio?app=android&v=${appVersion}"
+
+// Assinatura: keystore e senhas só por variável de ambiente (nunca no repositório).
+def ksPath = System.getenv("HEXOR_FIT_KEYSTORE")
+def hasKeystore = ksPath != null && file(ksPath).exists()
+
+android {
+    namespace "br.com.hexor.fit"
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "br.com.hexor.fit"
+        minSdk 24
+        targetSdk 36
+        versionCode appVersionCode
+        versionName appVersion
+
+        resValue "string", "launchUrl", launchUrl.toString()
+        manifestPlaceholders = [hostName: siteHost]
+    }
+
+    signingConfigs {
+        release {
+            if (hasKeystore) {
+                storeFile file(ksPath)
+                storePassword System.getenv("HEXOR_FIT_KEYSTORE_PASSWORD")
+                keyAlias(System.getenv("HEXOR_FIT_KEY_ALIAS") ?: "hexorfit")
+                keyPassword(System.getenv("HEXOR_FIT_KEY_PASSWORD") ?: System.getenv("HEXOR_FIT_KEYSTORE_PASSWORD"))
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            if (hasKeystore) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        resValues true
+        buildConfig false
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    // Trusted Web Activity com fallback para Custom Tab (mesma biblioteca que o Bubblewrap usa).
+    implementation "com.google.androidbrowserhelper:androidbrowserhelper:2.7.4"
+}

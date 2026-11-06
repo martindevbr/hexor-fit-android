@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutId="aluno"
+        android:shortcutLongLabel="@string/shortcutAluno"
+        android:shortcutShortLabel="@string/shortcutAlunoCurto">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:data="https://fit.hexor.com.br/aluno?app=android"
+            android:targetClass="com.google.androidbrowserhelper.trusted.LauncherActivity"
+            android:targetPackage="br.com.hexor.fit" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutId="personal"
+        android:shortcutLongLabel="@string/shortcutPersonal"
+        android:shortcutShortLabel="@string/shortcutPersonalCurto">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:data="https://fit.hexor.com.br/app?app=android"
+            android:targetClass="com.google.androidbrowserhelper.trusted.LauncherActivity"
+            android:targetPackage="br.com.hexor.fit" />
+    </shortcut>
+</shortcuts>

@@ -1,0 +1,25 @@
+# Build
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Assinatura: NUNCA versionar keystore, senhas ou base64 da keystore.
+*.jks
+*.keystore
+*.p12
+*.pem
+*.base64*
+keystore*.txt
+signing.properties
+hexor-fit-android-keys/
+
+# Saídas
+*.apk
+*.aab
+*.idsig

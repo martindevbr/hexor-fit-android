@@ -1,0 +1,33 @@
+﻿{
+  "packageId": "br.com.hexor.fit",
+  "host": "fit.hexor.com.br",
+  "name": "Hexor Fit",
+  "launcherName": "Hexor Fit",
+  "display": "standalone",
+  "orientation": "portrait",
+  "themeColor": "#06120E",
+  "themeColorDark": "#06120E",
+  "navigationColor": "#06120E",
+  "navigationColorDark": "#06120E",
+  "backgroundColor": "#06120E",
+  "enableNotifications": false,
+  "startUrl": "/inicio?app=android",
+  "iconUrl": "https://fit.hexor.com.br/icons/icon-512.png",
+  "maskableIconUrl": "https://fit.hexor.com.br/icons/maskable-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "D:\\hexor-fit-android-keys\\hexor-fit.jks",
+    "alias": "hexorfit"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 10000,
+  "shortcuts": [
+    { "name": "Minha área de aluno", "shortName": "Área do aluno", "url": "/aluno?app=android" },
+    { "name": "Painel do personal", "shortName": "Painel", "url": "/app?app=android" }
+  ],
+  "generatorApp": "manual (projeto Android mínimo equivalente ao do Bubblewrap)",
+  "webManifestUrl": "https://fit.hexor.com.br/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "minSdkVersion": 24
+}

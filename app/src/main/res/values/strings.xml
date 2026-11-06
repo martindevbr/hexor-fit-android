@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Hexor Fit</string>
+    <string name="shortcutAluno">Minha área de aluno</string>
+    <string name="shortcutAlunoCurto">Área do aluno</string>
+    <string name="shortcutPersonal">Painel do personal</string>
+    <string name="shortcutPersonalCurto">Painel</string>
+    <string name="assetStatements" translatable="false">
+        [{ \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+           \"target\": {\"namespace\": \"web\", \"site\": \"https://fit.hexor.com.br\"} }]
+    </string>
+</resources>

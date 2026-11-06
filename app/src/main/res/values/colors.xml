@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brandBackground">#06120E</color>
+    <color name="brandGreenDark">#064E3B</color>
+    <color name="brandGreen">#10B981</color>
+    <color name="brandTeal">#14B8A6</color>
+</resources>
