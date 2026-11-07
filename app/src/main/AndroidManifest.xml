@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:label="@string/appName"
         android:supportsRtl="true"
+        android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
         android:theme="@style/Theme.HexorFit">
 
         <meta-data
@@ -57,6 +58,17 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="${hostName}" />
             </intent-filter>
+        </activity>
+
+        <!-- Obrigatória: o LauncherActivity liga este componente (atalho "Configurações do site" e
+             "Gerenciar dados" do Android) quando o Chrome suporta. Sem ela no manifesto o R8 renomeia a
+             classe e o app fecha ao abrir ("Component class ... does not exist") - bug da 1.0.0/1.0.1. -->
+        <activity
+            android:name="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.customtabs.trusted.MANAGE_SPACE_URL"
+                android:value="@string/launchUrl" />
         </activity>
 
         <!-- Delegação de notificações da TWA: o Chrome entrega as notificações Web Push do site

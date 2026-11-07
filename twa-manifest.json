@@ -19,8 +19,8 @@
     "path": "D:\\hexor-fit-android-keys\\hexor-fit.jks",
     "alias": "hexorfit"
   },
-  "appVersionName": "1.0.1",
-  "appVersionCode": 10001,
+  "appVersionName": "1.0.2",
+  "appVersionCode": 10002,
   "shortcuts": [
     { "name": "Minha área de aluno", "shortName": "Área do aluno", "url": "/aluno?app=android" },
     { "name": "Painel do personal", "shortName": "Painel", "url": "/app?app=android" }
